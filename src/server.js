@@ -15,7 +15,7 @@ import path from 'path'
 
     const connection = await mongoose
         .connect( MONGO_URL, { useNewUrlParser: true } )
-        .catch( err => console.error( 'Error connecting db:', err.message ) )
+        .catch( err => console.error( 'Mongoose connection threw an error:', err.message, '[Please check the port and the host]' ) )
 
     // You can use this route to monitor if the server is working or not
     app.get( '/health', ( req, res ) => res.json( { UP: !!connection } ) )
