@@ -19,9 +19,17 @@ class ColorsApiService {
     }
 
     async fetchColorInfo( color ) {
-        const response = await this.httpService.get( 'id?hex=' + color )
+        try {
+            const response = await this.httpService.get( 'id?hex=' + color )
 
-        return ColorsApiService.mapColorsResponseToJson( response.data )
+            return ColorsApiService.mapColorsResponseToJson( response.data )
+        } catch ( error ) {
+            if ( error.code === 'ENOTFOUND' ) {
+                console.error( 'Can not access host', error.hostname )
+            }
+
+            throw error
+        }
     }
 }
 

@@ -8,7 +8,7 @@ In this simulation the aim is to expose you to a real world backend architecture
 - Using ES6 in node environment (`export`, `import`, etc)
 - Working with external API 
 - Using authentication headers
-- Geting to know Axios module
+- Getting to know Axios module
 
 # Running/Environment
 
@@ -22,19 +22,31 @@ It is NOT a file that you should be able to read.
 
 # To Do
 
+- Server is not even running (go to `/health` to monitor the server), check why
 - Fixing access to `/public` folder
 - Fixing all the errors that pops up in the console
-- Server is not even running (go to `/health` to monitor the server), check why
+- There are some database issues that avoid the server to start
 - Fix authentication headers
-- Add the ability to order by `likes` when searching photos (see the routes)
+- Add the ability to order by `likes` when searching photos (see the routes in the 'Available Routes' section)
 
 # Features
 
 - Save each requested photo in the database - when a user requests a photo, save it using mongoose models. It means you should also build the schema and a model in the right files
-- Add the ability to get/fetch a random photo (read about it in Unsplash API: https://unsplash.com/documentation)
+- Add the ability to get/fetch a random photo through a new route `http://localhost:8989/api/photos/random` (read about random photo at Unsplash API: https://unsplash.com/documentation)
 
+# Available Routes & More
 
-# Available Routes
-`/api/photos/search/<QUERY>` | Can add query string: `?orderBy=likes` or `?orderBy=resolution`
+There are two main routes that are accessible and one you should create on your on:
+
+1. `http://localhost:8989/api/photos/search/<TERM>` (Can add query params like: `?page=<PAGE>&orderBy=<ORDER_BY>`). 
+This route will search photos under the entered term
  
-`/api/photos/<PHOTO_ID>`
+2. `http://localhost:8989/api/photos/<PHOTO_ID>` - will allow you to get more information about the photo
+
+3. `http://localhost:8989/api/photos/random` - will give you a random photo from unsplash api, **you should create this route yourself**
+
+There is a use within two APIs you can read about:
+
+1. https://unsplash.com/documentation
+
+2. https://www.thecolorapi.com/docs

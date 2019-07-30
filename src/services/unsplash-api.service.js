@@ -62,7 +62,9 @@ class UnsplashApiService {
 
     async fetchPhotoInfo( photoId ) {
         const photoInfoResponse = await this.httpService.get( '/photos/' + photoId )
+
         const colorPalette = await Vibrant.from( photoInfoResponse.data.urls.regular ).getPalette()
+
         const photoInfo = UnsplashApiService.mapUnsplashPhotoInfoResponse( photoInfoResponse.data )
 
         return {
