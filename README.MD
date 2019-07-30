@@ -6,7 +6,7 @@
 - There are automatic scripts that will run in the background and will compile all your
 files into one big file called `./build/server.js`.
 It is NOT a file that you should be able to read.
-- You have a file attached call _Architecture.pdf_ that explains the architecture of the application, use it!
+- You have a file attached called _Architecture.pdf_ that explains the architecture of the application, use it!
 
 # Features
 
