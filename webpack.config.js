@@ -8,6 +8,17 @@ const bannerOptions = {
 }
 
 module.exports = {
+    module: {
+        rules: [
+            {
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    plugins: [ 'transform-class-properties' ]
+                }
+            }
+        ]
+    },
     target: 'node',
     mode: 'production',
     stats: 'errors-only',

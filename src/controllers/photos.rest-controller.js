@@ -38,7 +38,7 @@ class PhotosRestController {
         return await this.colorsApiService.fetchColorInfo( hex )
     }
 
-    async searchPhotos( request, response ) {
+    searchPhotos = async ( request, response ) => {
         const page = request.query[ 'page' ] || 1
         const photos = await this.fetchPhotosFromUnsplashApi( request.params[ 'term' ], page )
 
