@@ -3,10 +3,13 @@ import express from 'express'
 import photosRouter from './routes/photos'
 import mongoose from 'mongoose'
 import path from 'path'
+import cors from 'cors'
 
 ( async () => {
     const app = express()
     const PORT = process.env.SERVER_PORT || 3000
+
+    app.use( cors() )
 
     // See webpack.config configurations for __dirname
     app.use( express.static( path.join( __dirname, '..', 'public' ) ) )
